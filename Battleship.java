@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-//test
-
 public class Battleship
 {
     public static Scanner reader = new Scanner(System.in);
