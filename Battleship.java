@@ -14,7 +14,7 @@ public class Battleship
         Player userPlayer = new Player();
         setup(userPlayer);
         
-        System.out.println("Computer SETUP...DONE...PRESS ENTER TO CONTINUE...");
+        System.out.println("Computer SETUP DONE - PRESS ENTER TO CONTINUE...");
         reader.nextLine();
         reader.nextLine();
         Player computer = new Player();
@@ -74,7 +74,7 @@ public class Battleship
         }
         
         
-        System.out.println("\nYOUR BOARD...PRESS ENTER TO CONTINUE...");
+        System.out.println("\nYOUR BOARD - PRESS ENTER TO CONTINUE...");
         reader.nextLine();
         user.playerGrid.printCombined();
         System.out.println("PRESS ENTER TO CONTINUE...");
