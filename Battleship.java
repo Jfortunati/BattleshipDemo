@@ -212,7 +212,9 @@ public class Battleship
                 p.ships[normCounter].setLocation(row, col);
                 p.ships[normCounter].setDirection(dir);
                 p.playerGrid.addShip(p.ships[normCounter]);
+                p.playerGrid.addShip(p.ships[abyNormCounter]);
                 
+                abyNormCounter++;
                 normCounter++;
                 counter++;
             }
@@ -267,6 +269,19 @@ public class Battleship
         {
             // For each location a ship occupies, check if ship is already there
             for (int i = row; i < row+length; i++)
+            {
+                //System.out.println("DEBUG: row = " + row + "; col = " + i);
+                if(p.playerGrid.hasShip(i, col))
+                {
+                    System.out.println("THERE IS ALREADY A SHIP AT THAT LOCATION");
+                    return true;
+                }
+            }
+        }
+        else if (dir == -1) // Upsidedown
+        {
+            // For each location a ship occupies, check if ship is already there
+            for (int i = row; i < row-length; i--)
             {
                 //System.out.println("DEBUG: row = " + row + "; col = " + i);
                 if(p.playerGrid.hasShip(i, col))
