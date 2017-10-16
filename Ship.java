@@ -46,11 +46,11 @@ public class Ship
     }
     
     // Set the direction of the ship
-    public void setDirection(int direction)
+    public void setDirection(int orientation)
     {
-        if (direction != UNSET && direction != HORIZONTAL && direction != VERTICAL)
+        if (orientation != UNSET && orientation != HORIZONTAL && orientation != VERTICAL)
             throw new IllegalArgumentException("Invalid direction. It must be -1, 0, or 1");
-        this.direction = direction;
+        this.orientation = orientation;
     }
     
     // Getter for the row value
