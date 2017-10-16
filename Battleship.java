@@ -107,7 +107,8 @@ public class Battleship
                     
             //System.out.println("DEBUG: " + row + col);
                     
-            if (col >= 0 && col <= 9 && row != -1)
+            if (col >= 0 && col <= 9 && row != -1 || row != -2)
+                col = convertUserColToProCol2(col);
                 break;
                     
             System.out.println("Invalid location!");
@@ -116,13 +117,22 @@ public class Battleship
         if (opp.playerGrid.hasShip(row, col))
         {
             p.oppGrid.markHit(row, col);
-            opp.playerGrid.markHit(row, col);
             return "** USER HIT AT " + oldRow + oldCol + " **";
         }
         else
         {
             p.oppGrid.markMiss(row, col);
-            opp.playerGrid.markMiss(row, col);
+            return "** USER MISS AT " + oldRow + oldCol + " **";
+        }
+        
+        if (opp.Grid.hasShip(row, col))
+        {
+            p.opp.markHit(row, col);
+            return "** USER HIT AT " + oldRow + oldCol + " **";
+        }
+        else
+        {
+            p.opp.markMiss(row, col);
             return "** USER MISS AT " + oldRow + oldCol + " **";
         }
     }
