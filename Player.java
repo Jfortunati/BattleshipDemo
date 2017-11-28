@@ -1,8 +1,8 @@
 public class Player
 {
     // These are the lengths of all of the ships.
-    private static final int[] SHIP_LENGTHS = {2, 3, 3, 4, 5, 6};
-    private static final int NUM_OF_SHIPS = 6;
+    private static final int[] SHIP_LENGTHS = {2, 3, 3, 4, 5, 6, 7, 8, 9};
+    private static final int NUM_OF_SHIPS = 9;
     
     public Ship[] ships;
     public Grid playerGrid;
@@ -10,9 +10,9 @@ public class Player
     
     public Player()
     {
-        if (NUM_OF_SHIPS != 5) // Num of ships must be 5
+        if (NUM_OF_SHIPS != 8) // Num of ships must be 5
         {
-            throw new IllegalArgumentException("ERROR! Num of ships must be 5");
+            throw new IllegalArgumentException("ERROR! Num of ships must be 8!");
         }
         
         ships = new Ship[NUM_OF_SHIPS];
@@ -36,7 +36,7 @@ public class Player
     
     public int numOfShipsLeft()
     {
-        int counter = 5;
+        int counter = 8;
         for (Ship s: ships)
         {
             if (s.isLocationSet() && s.isDirectionSet())
