@@ -4,8 +4,8 @@ public class Grid
     private int points;
 
     // Constants for number of rows and columns.
-    public static final int NUM_ROWS = 10;
-    public static final int NUM_COLS = 10;
+    public static final int NUM_ROWS = 12;
+    public static final int NUM_COLS = 12;
     
     public Grid()
     {
@@ -195,6 +195,18 @@ public class Grid
                         {
                             System.out.print("A ");
                         }
+                        else if (grid[switchCounterToIntegerForArray(i)][j].getLengthOfShip() == 6)
+                        {
+                            System.out.print("A ");
+                        }
+                        else if (grid[switchCounterToIntegerForArray(i)][j].getLengthOfShip() == 7)
+                        {
+                            System.out.print("A ");
+                        }
+                        else if (grid[switchCounterToIntegerForArray(i)][j].getLengthOfShip() == 8)
+                        {
+                            System.out.print("A ");
+                        }
                     }
                         
                     else if (!(grid[switchCounterToIntegerForArray(i)][j].hasShip()))
@@ -223,6 +235,18 @@ public class Grid
                             System.out.print("B ");
                         }
                         else if (grid[switchCounterToIntegerForArray(i)][j].getLengthOfShip() == 5)
+                        {
+                            System.out.print("A ");
+                        }
+                        else if (grid[switchCounterToIntegerForArray(i)][j].getLengthOfShip() == 6)
+                        {
+                            System.out.print("A ");
+                        }
+                        else if (grid[switchCounterToIntegerForArray(i)][j].getLengthOfShip() == 7)
+                        {
+                            System.out.print("A ");
+                        }
+                        else if (grid[switchCounterToIntegerForArray(i)][j].getLengthOfShip() == 8)
                         {
                             System.out.print("A ");
                         }
