@@ -14,7 +14,7 @@ public class Battleship
         Player userPlayer = new Player();
         setup(userPlayer);
         
-        System.out.println("Computer SETUP...DONE...PRESS ENTER TO CONTINUE...");
+        System.out.println("Computer SETUP DONE - PRESS ENTER TO CONTINUE...");
         reader.nextLine();
         reader.nextLine();
         Player computer = new Player();
@@ -74,7 +74,7 @@ public class Battleship
         }
         
         
-        System.out.println("\nYOUR BOARD...PRESS ENTER TO CONTINUE...");
+        System.out.println("\nYOUR BOARD - PRESS ENTER TO CONTINUE...");
         reader.nextLine();
         user.playerGrid.printCombined();
         System.out.println("PRESS ENTER TO CONTINUE...");
@@ -107,7 +107,8 @@ public class Battleship
                     
             //System.out.println("DEBUG: " + row + col);
                     
-            if (col >= 0 && col <= 9 && row != -1)
+            if (col >= 0 && col <= 9 && row != -1 || row != -2)
+                col = convertUserColToProCol2(col);
                 break;
                     
             System.out.println("Invalid location!");
@@ -116,13 +117,22 @@ public class Battleship
         if (opp.playerGrid.hasShip(row, col))
         {
             p.oppGrid.markHit(row, col);
-            opp.playerGrid.markHit(row, col);
             return "** USER HIT AT " + oldRow + oldCol + " **";
         }
         else
         {
             p.oppGrid.markMiss(row, col);
-            opp.playerGrid.markMiss(row, col);
+            return "** USER MISS AT " + oldRow + oldCol + " **";
+        }
+        
+        if (opp.Grid.hasShip(row, col))
+        {
+            p.opp.markHit(row, col);
+            return "** USER HIT AT " + oldRow + oldCol + " **";
+        }
+        else
+        {
+            p.opp.markMiss(row, col);
             return "** USER MISS AT " + oldRow + oldCol + " **";
         }
     }
@@ -212,7 +222,9 @@ public class Battleship
                 p.ships[normCounter].setLocation(row, col);
                 p.ships[normCounter].setDirection(dir);
                 p.playerGrid.addShip(p.ships[normCounter]);
+                p.playerGrid.addShip(p.ships[abyNormCounter]);
                 
+                abyNormCounter++;
                 normCounter++;
                 counter++;
             }
@@ -267,6 +279,19 @@ public class Battleship
         {
             // For each location a ship occupies, check if ship is already there
             for (int i = row; i < row+length; i++)
+            {
+                //System.out.println("DEBUG: row = " + row + "; col = " + i);
+                if(p.playerGrid.hasShip(i, col))
+                {
+                    System.out.println("THERE IS ALREADY A SHIP AT THAT LOCATION");
+                    return true;
+                }
+            }
+        }
+        else if (dir == -1) // Upsidedown
+        {
+            // For each location a ship occupies, check if ship is already there
+            for (int i = row; i < row-length; i--)
             {
                 //System.out.println("DEBUG: row = " + row + "; col = " + i);
                 if(p.playerGrid.hasShip(i, col))

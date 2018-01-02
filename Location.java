@@ -67,9 +67,9 @@ public class Location
     }
 
     // Set the value of whether this location has a ship.
-    public void setShip(boolean val)
+    public void setShip(boolean parameter)
     {
-        this.hasShip = val;
+        this.hasShip = parameter;
     }
 
     // Set the status of this Location.
@@ -89,9 +89,9 @@ public class Location
         return lengthOfShip; 
     }
     
-    public void setLengthOfShip(int val)
+    public void setLengthOfShip(int parameter)
     {
-        lengthOfShip = val;
+        lengthOfShip = parameter;
     }
     
     public int getDirectionOfShip()
@@ -99,8 +99,8 @@ public class Location
         return directionOfShip; 
     }
     
-    public void setDirectionOfShip(int val)
+    public void setDirectionOfShip(int parameter)
     {
-        directionOfShip = val;
+        directionOfShip = parameter;
     }
 }
